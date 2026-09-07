@@ -11,6 +11,7 @@
 - 能力与服务边界：[docs/DOMAIN-MAP.md](docs/DOMAIN-MAP.md)
 - 实施路线：[docs/ROADMAP.md](docs/ROADMAP.md)
 - 旧技能迁移：[docs/MIGRATION-FROM-KELI-MATH.md](docs/MIGRATION-FROM-KELI-MATH.md)
+- keliagent 集成：[docs/KELIAGENT-INTEGRATION.md](docs/KELIAGENT-INTEGRATION.md)
 
 ## 当前能力
 
