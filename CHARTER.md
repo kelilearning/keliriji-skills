@@ -137,3 +137,6 @@ Agent -- API Key --> skills.keliriji.com -- delegated user session --> AppFuncto
 - 能力矩阵、迁移说明、路线图和自动结构校验。
 
 第一阶段不承诺新增后端 endpoint。发现缺口时在路线图中登记，由 Gateway 或业务所属服务实现并发布契约后，再将能力状态提升为 `available`。
+## 12. 第一方 LEC 对话委托（2026-09-07）
+
+仅 `/api/v1/open/review/coach/evidence` 与 `/coach/interventions` 允许第一方 keliagent 使用当前用户登录 JWT 委托。Gateway 必须向 AppFunctor 验证 JWT 并保持 self，后端每次核验 keliflo 学习者绑定与 AppFactory 已付款学科。不得接受客户端自报归属。第三方 API Key 仍分别要求 read / review；其它 OpenAPI 路由不接受此例外。Agent 业务访问仍只能走 Gateway。

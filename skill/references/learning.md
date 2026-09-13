@@ -76,3 +76,12 @@
 - [ ] 用户完成后才调用 complete
 - [ ] 洞察查询未被解释为写入或状态变更
 ```
+## L6. 第一方家庭计划对话与下一份 Plan 干预
+
+状态：`limited`，需确认目标 Gateway 已发布以下契约；旧部署不支持时不得执行。
+
+- `GET /api/v1/open/review/coach/evidence`，read：subject、stream、sessionId 均必填。先读取权威 LearnerSession 快照（已存对话、颗粒、教练层、学生层、真实反馈、下一份未消费 Plan）。
+- `POST /api/v1/open/review/coach/interventions`，review：同一上下文，加 decisionId、planId、expectedRevision、orderedParticleIds、reason、evidenceRefs。只允许基于 nextPlan 内已有颗粒排序派生新 Plan，其余颗粒保留。新 Plan 插入同一备选队列，返回的新 planId 与 basePlanId 不同。原机械化 Plan 不覆盖、不删除，机械补货照常且派生库存不抵扣保底库存。不修改正在消费的会话，不新增颗粒；无实质改动不入队。
+- 第一方受托登录 JWT 仅限这两个路由，Gateway 验证用户，AppFunctor 校验付费学习者绑定。不可用通用环境 API Key 代替当前学生。
+- 对话应围绕 currentParticleId；证据缺层时说明局限。不将口述理解为已评分。没有必要调整时继续对话；只有干预返回 applied 才展示新备选已补入。409 重新读取证据，不能盲目覆盖。
+- 决策 ID 等于上游幂等 requestId。回流来自权威 LEC feedback，下一轮重新读取。
