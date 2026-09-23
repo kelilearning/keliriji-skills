@@ -44,6 +44,7 @@ L2 任务流程：整理 / 学习复习 / PAS-TTQ / OSR / 工厂
 3. 执行对应流程：
    - 素材上传、提取与颗粒查询 → [references/materials.md](references/materials.md)
    - 安排并完成学习流 → [references/learning.md](references/learning.md)
+   - 练字、田字格 PDF → [references/handwriting.md](references/handwriting.md)（受信 AppFunctor 入口）
    - TTQ、PAS、关系图、工厂、OSR → [references/extended-capabilities.md](references/extended-capabilities.md)
 4. 术语不清 → [references/glossary.md](references/glossary.md)
 
